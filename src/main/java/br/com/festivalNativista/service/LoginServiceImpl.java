@@ -23,4 +23,15 @@ public class LoginServiceImpl extends ServiceImpl<Login> implements LoginService
         login.setSenha(login.codificar(login.getSenha()));
         return getRepository().save(login);
     }
+
+    @Override
+    public Boolean logar(String codigo, String senha) {
+        //criptografa a senha na class para comparar com o banco
+        Login login = new Login(codigo, senha);
+        Login validar = getRepository().logar(login.getCodigo(), login.getSenha());
+        if (validar != null) {
+            return true;
+        }
+        return false;
+    }
 }

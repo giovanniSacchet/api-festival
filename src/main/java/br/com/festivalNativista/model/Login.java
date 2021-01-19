@@ -15,31 +15,37 @@ import java.security.MessageDigest;
 @Table(name = "login")
 public class Login {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        @NotNull
-        @NotEmpty
-        @Column(name = "codigo")
-        private String codigo;
+    @NotNull
+    @NotEmpty
+    @Column(name = "codigo")
+    private String codigo;
 
-        @NotNull @NotEmpty
-        @Column(name = "senha")
-        private String senha;
+    @NotNull
+    @NotEmpty
+    @Column(name = "senha")
+    private String senha;
 
-        public Login () {
-            super();
+    public Login() {
+        super();
+    }
+
+    public Login(String codigo, String senha) {
+        this.codigo = codigo;
+        this.senha = codificar(senha);
+    }
+
+    public String codificar(String senha) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
+            return hash.toString(16);
+        } catch (Exception e) {
+            return "";
         }
-
-        public String codificar(String senha) {
-                try {
-                        MessageDigest md = MessageDigest.getInstance("MD5");
-                        BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
-                        return hash.toString(16);
-                } catch (Exception e) {
-                        return "";
-                }
-        }
+    }
 
 }

@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import br.com.festivalNativista.form.UserForm;
 import br.com.festivalNativista.model.User;
 import br.com.festivalNativista.service.UserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/user")
 public class UserController {

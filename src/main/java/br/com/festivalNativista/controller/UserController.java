@@ -14,7 +14,7 @@ import br.com.festivalNativista.form.UserForm;
 import br.com.festivalNativista.model.User;
 import br.com.festivalNativista.service.UserService;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/user")
 public class UserController {

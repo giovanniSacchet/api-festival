@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.festivalNativista.form.EmailForm;
 import br.com.festivalNativista.service.EmailService;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/email")
 public class EmailController {

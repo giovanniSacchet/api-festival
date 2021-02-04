@@ -21,8 +21,8 @@ import br.com.festivalNativista.config.security.TokenService;
 import br.com.festivalNativista.controller.dto.TokenDTO;
 import br.com.festivalNativista.form.LoginForm;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@CrossOrigin
 @RequestMapping("/api/auth")
 public class AutenticacaoController {
 	

@@ -5,9 +5,9 @@ import br.com.festivalNativista.service.VotarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/votar")
-@CrossOrigin
 public class VotarController {
 
     private final VotarService votarService;

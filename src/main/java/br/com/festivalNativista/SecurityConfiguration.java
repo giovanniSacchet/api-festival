@@ -1,7 +1,7 @@
 package br.com.festivalNativista;
 
-import java.util.Arrays;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +26,8 @@ import br.com.festivalNativista.config.security.AutenticacaoViaTokenFilter;
 @EnableWebSecurity
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	private static Logger logger = LoggerFactory.getLogger(FestivalNativistaApplication.class);
 	
 	@Autowired
 	private AutenticacaoService autenticacaoService;
@@ -54,17 +56,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 	
 	// Autorização
-		@Override
-		protected void configure(HttpSecurity http) throws Exception {
-			http
-				.cors().and().csrf().disable()
-				.authorizeRequests()
-				.antMatchers(HttpMethod.POST, "/api/auth").permitAll()
-				.antMatchers(HttpMethod.POST, "/api/user").permitAll()
-				.antMatchers(HttpMethod.GET, "/api/videos").permitAll()
-				.anyRequest().authenticated()
-				.and()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-				.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, userRepository), UsernamePasswordAuthenticationFilter.class);;
-		}
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+			.cors().and().csrf().disable().authorizeRequests()
+			.antMatchers(HttpMethod.POST, "/api/auth").permitAll()
+			.antMatchers(HttpMethod.POST, "/api/user").permitAll()
+			.antMatchers(HttpMethod.GET, "/api/videos").permitAll()
+			.anyRequest().authenticated().and()
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, userRepository), UsernamePasswordAuthenticationFilter.class);;
+	}
+
 }

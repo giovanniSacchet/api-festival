@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/api/video")
+@RequestMapping("/api/videos")
 public class VideoController {
 
     private final VideoService videoService;
@@ -34,7 +34,7 @@ public class VideoController {
     }
 
     @PostMapping(value = "/cadastrar", produces = "application/json;charset=UTF-8")
-    public Video save(@Valid @RequestBody Video video) {
+    public Video save(@RequestBody @Valid Video video) {
         video.setIdVideo(getYouTubeId(video.getIdVideo()));
         return videoService.save(video);
     }
@@ -44,7 +44,7 @@ public class VideoController {
         return this.videoService.findAllProfissional();
     }
 
-    @GetMapping("/iniciante")
+    @GetMapping("/revelacao")
     public List<Video> getAllVideosIniciante() {
         return this.videoService.findAllIniciante();
     }

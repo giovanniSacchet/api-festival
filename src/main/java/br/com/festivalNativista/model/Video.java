@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 @Entity
@@ -17,19 +15,19 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull @NotEmpty
+    @NotBlank
     @Column(name = "id_video")
     private String idVideo;
 
-    @NotNull @NotEmpty
+    @NotBlank
     @Column(name = "autor")
     private String autor;
 
-    @NotNull @NotEmpty
+    @NotBlank
     @Column(name = "titulo_musica")
     private String tituloMusica;
 
-    @NotNull @NotEmpty
+    @NotBlank
     @Column(name = "modalidade")
     private boolean modalidade; //True profissional, False iniciante;
 

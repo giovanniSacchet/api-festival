@@ -8,6 +8,6 @@ public interface VideoService extends Service<Video> {
 
     List<Video> findAllProfissional();
 
-    List<Video> findAllIniciante();
+    List<Video> findAllRevelacao();
 
 }

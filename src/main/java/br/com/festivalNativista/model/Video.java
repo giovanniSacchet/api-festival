@@ -27,9 +27,8 @@ public class Video {
     @Column(name = "titulo_musica")
     private String tituloMusica;
 
-    @NotBlank
     @Column(name = "modalidade")
-    private boolean modalidade; //True profissional, False iniciante;
+    private boolean modalidade; //True profissional, False revelação;
 
     public Video () {
         super();

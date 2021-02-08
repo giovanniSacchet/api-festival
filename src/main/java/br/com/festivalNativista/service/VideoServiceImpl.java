@@ -26,7 +26,7 @@ public class VideoServiceImpl extends ServiceImpl<Video> implements VideoService
     }
 
     @Override
-    public List<Video> findAllIniciante() {
-        return getRepository().findAllIniciante();
+    public List<Video> findAllRevelacao() {
+        return getRepository().findAllRevelacao();
     }
 }

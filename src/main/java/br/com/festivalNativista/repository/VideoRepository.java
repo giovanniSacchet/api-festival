@@ -13,6 +13,6 @@ public interface VideoRepository extends JpaRepository<Video, Long>, JpaSpecific
     List<Video> findAllProfissional();
 
     @Query("SELECT v FROM Video v WHERE v.modalidade = false")
-    List<Video> findAllIniciante();
+    List<Video> findAllRevelacao();
 
 }

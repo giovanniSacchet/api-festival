@@ -62,6 +62,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.cors().and().csrf().disable().authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/api/auth").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/videos/*").permitAll()
+			.antMatchers(HttpMethod.GET, "/api/votar/*").permitAll()
 			.anyRequest().authenticated().and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, userRepository), UsernamePasswordAuthenticationFilter.class);;

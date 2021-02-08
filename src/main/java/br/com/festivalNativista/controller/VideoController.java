@@ -3,8 +3,6 @@ package br.com.festivalNativista.controller;
 import br.com.festivalNativista.model.Video;
 import br.com.festivalNativista.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -34,15 +32,6 @@ public class VideoController {
             return "false";
         }
     }
-
-//    @PostMapping(value = "/cadastrar", produces = "application/json;charset=UTF-8")
-//    public ResponseEntity<Video> save (@RequestBody @Valid Video video) {
-//        video.setIdVideo(getYouTubeId(video.getIdVideo()));
-//        if (video.getIdVideo() != "false") {
-//            return ResponseEntity.status(HttpStatus.OK).body(videoService.save(video));
-//        }
-//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-//    }
 
     @PostMapping(value = "/cadastrar", produces = "application/json;charset=UTF-8")
     public Video save (@RequestBody @Valid Video video) {

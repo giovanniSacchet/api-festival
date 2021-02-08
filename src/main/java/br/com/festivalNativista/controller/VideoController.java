@@ -35,22 +35,13 @@ public class VideoController {
         }
     }
 
-//    @PostMapping(value = "/cadastrar", produces = "application/json;charset=UTF-8")
-//    public ResponseEntity<Video> save (@RequestBody @Valid Video video) {
-//        video.setIdVideo(getYouTubeId(video.getIdVideo()));
-//        if (video.getIdVideo() != "false") {
-//            return ResponseEntity.status(HttpStatus.OK).body(videoService.save(video));
-//        }
-//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-//    }
-
     @PostMapping(value = "/cadastrar", produces = "application/json;charset=UTF-8")
-    public Video save (@RequestBody @Valid Video video) {
+    public ResponseEntity<Video> save (@RequestBody @Valid Video video) {
         video.setIdVideo(getYouTubeId(video.getIdVideo()));
         if (video.getIdVideo() != "false") {
-            return videoService.save(video);
+            return ResponseEntity.status(HttpStatus.OK).body(videoService.save(video));
         }
-        return null;
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     @GetMapping("/profissional")

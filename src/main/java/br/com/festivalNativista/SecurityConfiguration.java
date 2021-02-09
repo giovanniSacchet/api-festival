@@ -63,6 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.POST, "/api/auth").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/videos/*").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/votar/*").permitAll()
+			.antMatchers(HttpMethod.POST, "/api/email").permitAll()
 			.anyRequest().authenticated().and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, userRepository), UsernamePasswordAuthenticationFilter.class);;

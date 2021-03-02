@@ -64,16 +64,16 @@ public class VideoController {
         this.videoService.deleteAllVideos();
     }
 
-    @GetMapping(value = "/editar", produces = "application/json;charset=UTF-8")
-    public Video updateVideo() {
-        Video video = new Video();
-        video.setId(Long.valueOf(7));
-        video.setIdVideo("PENswraRTLk");
-        video.setAutor("Guilherme Alves Marques");
-        video.setTituloMusica("Por viver pensando nela (Chamarra)");
-        video.setModalidade(false);
-        return this.videoService.save(video);
-    }
+//    @GetMapping(value = "/editar", produces = "application/json;charset=UTF-8")
+//    public Video updateVideo() {
+//        Video video = new Video();
+//        video.setId(Long.valueOf(7));
+//        video.setIdVideo("PENswraRTLk");
+//        video.setAutor("Guilherme Alves Marques");
+//        video.setTituloMusica("Por viver pensando nela (Chamarra)");
+//        video.setModalidade(false);
+//        return this.videoService.save(video);
+//    }
 
     @GetMapping("/profissional")
     public List<Video> getAllVideosProfissional() {

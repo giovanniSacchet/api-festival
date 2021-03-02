@@ -6,4 +6,6 @@ public interface VotarService extends Service<Votar>{
 
     Long contarVotos(Long idVideo);
 
+    void zerarVotosByIdVideo(Long idVideo);
+
 }

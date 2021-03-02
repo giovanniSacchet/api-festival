@@ -2,6 +2,7 @@ package br.com.festivalNativista.service;
 
 import br.com.festivalNativista.model.Video;
 import br.com.festivalNativista.repository.VideoRepository;
+import br.com.festivalNativista.repository.VotarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,10 @@ public class VideoServiceImpl extends ServiceImpl<Video> implements VideoService
     @Override
     public List<Video> findAllRevelacao() {
         return getRepository().findAllRevelacao();
+    }
+
+    @Override
+    public void deleteAllVideos() {
+        getRepository().deleteAll();
     }
 }

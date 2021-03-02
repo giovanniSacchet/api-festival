@@ -10,4 +10,6 @@ public interface VideoService extends Service<Video> {
 
     List<Video> findAllRevelacao();
 
+    void deleteAllVideos();
+
 }

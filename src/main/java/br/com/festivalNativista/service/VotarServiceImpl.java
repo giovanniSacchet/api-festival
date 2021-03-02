@@ -22,4 +22,9 @@ public class VotarServiceImpl extends ServiceImpl<Votar> implements VotarService
     public Long contarVotos(Long idVideo) {
         return getRepository().contarVotos(idVideo);
     }
+
+    @Override
+    public void zerarVotosByIdVideo(Long idVideo) {
+        getRepository().zerarVotosByIdVideo(idVideo);
+    }
 }

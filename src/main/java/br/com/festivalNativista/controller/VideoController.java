@@ -67,10 +67,10 @@ public class VideoController {
 //    @GetMapping(value = "/editar", produces = "application/json;charset=UTF-8")
 //    public Video updateVideo() {
 //        Video video = new Video();
-//        video.setId(Long.valueOf(7));
-//        video.setIdVideo("PENswraRTLk");
-//        video.setAutor("Guilherme Alves Marques");
-//        video.setTituloMusica("Por viver pensando nela (Chamarra)");
+//        video.setId(Long.valueOf(3));
+//        video.setIdVideo("sYZuxF1y3to");
+//        video.setAutor("Enio Dias Santos Filho");
+//        video.setTituloMusica("O Centauro sem rumo (Nativista)");
 //        video.setModalidade(false);
 //        return this.videoService.save(video);
 //    }

@@ -8,4 +8,6 @@ public interface VotarService extends Service<Votar>{
 
     void zerarVotosByIdVideo(Long idVideo);
 
+    void zerarVotacao();
+
 }

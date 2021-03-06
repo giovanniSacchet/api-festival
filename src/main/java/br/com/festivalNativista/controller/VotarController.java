@@ -6,6 +6,8 @@ import br.com.festivalNativista.model.Votar;
 import br.com.festivalNativista.service.VideoService;
 import br.com.festivalNativista.service.VotarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -41,6 +43,7 @@ public class VotarController {
                 listDTO.add(dto);
             }
         }
+        //this.votarService.zerarVotacao(); //Habilitar essa linha para zerar votacao;
         return listDTO;
     }
 

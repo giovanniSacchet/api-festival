@@ -27,4 +27,9 @@ public class VotarServiceImpl extends ServiceImpl<Votar> implements VotarService
     public void zerarVotosByIdVideo(Long idVideo) {
         getRepository().zerarVotosByIdVideo(idVideo);
     }
+
+    @Override
+    public void zerarVotacao() {
+        getRepository().deleteAll();
+    }
 }

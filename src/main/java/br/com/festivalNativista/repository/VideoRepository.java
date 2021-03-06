@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface VideoRepository extends JpaRepository<Video, Long>, JpaSpecificationExecutor<Video> {
 
-    @Query("SELECT v FROM Video v WHERE v.modalidade = true")
+    @Query("SELECT v FROM Video v WHERE v.modalidade = true ORDER BY v.tituloMusica")
     List<Video> findAllProfissional();
 
-    @Query("SELECT v FROM Video v WHERE v.modalidade = false")
+    @Query("SELECT v FROM Video v WHERE v.modalidade = false ORDER BY v.tituloMusica")
     List<Video> findAllRevelacao();
 
 }

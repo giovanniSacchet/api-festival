@@ -14,4 +14,5 @@ public interface VotarRepository extends JpaRepository<Votar, Long>, JpaSpecific
     @Query(value = "DELETE FROM votar where id_video = :idVideo", nativeQuery = true)
     void zerarVotosByIdVideo(@Param("idVideo") Long idVideo);
 
+
 }

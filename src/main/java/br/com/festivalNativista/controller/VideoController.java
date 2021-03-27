@@ -1,8 +1,6 @@
 package br.com.festivalNativista.controller;
 
-import br.com.festivalNativista.controller.dto.VotosDTO;
 import br.com.festivalNativista.model.Video;
-import br.com.festivalNativista.repository.VotarRepository;
 import br.com.festivalNativista.service.VideoService;
 import br.com.festivalNativista.service.VotarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,8 +49,8 @@ public class VideoController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
-    @DeleteMapping(value = "/deleteAll", produces = "application/json;charset=UTF-8")
-    public void deleteAllVideos () {
+    @GetMapping(value = "/deleteAll", produces = "application/json;charset=UTF-8")
+    public Video deleteAllVideos () {
         List<Video> videos = new ArrayList<>();
         Long numVotos;
         for(int i = 0; i < videos.size(); i++) {
@@ -62,6 +60,7 @@ public class VideoController {
             }
         }
         this.videoService.deleteAllVideos();
+        return new Video();
     }
 
 //    @GetMapping(value = "/editar", produces = "application/json;charset=UTF-8")

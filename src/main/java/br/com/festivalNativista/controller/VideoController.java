@@ -49,19 +49,19 @@ public class VideoController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
-    @GetMapping(value = "/deleteAll", produces = "application/json;charset=UTF-8")
-    public Video deleteAllVideos () {
-        List<Video> videos = new ArrayList<>();
-        Long numVotos;
-        for(int i = 0; i < videos.size(); i++) {
-            numVotos = this.votarService.contarVotos(videos.get(i).getId());
-            if (numVotos != 0) {
-                this.votarService.zerarVotosByIdVideo(videos.get(i).getId());
-            }
-        }
-        this.videoService.deleteAllVideos();
-        return new Video();
-    }
+//    @GetMapping(value = "/deleteAll", produces = "application/json;charset=UTF-8")
+//    public Video deleteAllVideos () {
+//        List<Video> videos = new ArrayList<>();
+//        Long numVotos;
+//        for(int i = 0; i < videos.size(); i++) {
+//            numVotos = this.votarService.contarVotos(videos.get(i).getId());
+//            if (numVotos != 0) {
+//                this.votarService.zerarVotosByIdVideo(videos.get(i).getId());
+//            }
+//        }
+//        this.videoService.deleteAllVideos();
+//        return new Video();
+//    }
 
 //    @GetMapping(value = "/editar", produces = "application/json;charset=UTF-8")
 //    public Video updateVideo() {
